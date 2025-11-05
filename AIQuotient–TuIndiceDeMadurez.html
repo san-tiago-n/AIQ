@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bliss | AI Quotient (AIQ)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Tokens de Marca Bliss (del Brandbook v1.3) --- */
+        :root {
+            --color-bliss-coral: #FF9980;
+            --color-bliss-azul-pastel: #A3D4FF;
+            --color-bliss-amarillo: #FFE873;
+            --color-bliss-petroleo: #004F73;
+            --color-bliss-morado: #B3A4FF;
+            --color-bliss-fondo-dark: #00334F;
+            --color-bliss-fondo-light: #F7FAFC;
+        }
+
+        /* --- Estilo Base y Tipografía --- */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--color-bliss-fondo-light);
+            color: var(--color-bliss-petroleo);
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* --- Encabezado y Logo --- */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        header img {
+            max-width: 180px;
+            height: auto;
+        }
+
+        /* --- Jerarquía de Títulos (Poppins/Montserrat) --- */
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--color-bliss-fondo-dark);
+            line-height: 1.3;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 2rem;
+            color: var(--color-bliss-fondo-dark);
+            border-bottom: 3px solid var(--color-bliss-azul-pastel);
+            padding-bottom: 10px;
+            margin-top: 50px;
+        }
+        h3 {
+            font-size: 1.5rem;
+            color: var(--color-bliss-morado);
+            margin-top: 30px;
+        }
+
+        /* --- Elementos de Contenido --- */
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        hr {
+            border: 0;
+            height: 2px;
+            background-color: var(--color-bliss-azul-pastel);
+            margin: 50px 0;
+        }
+
+        /* --- Citas y Destacados (Amarillo Brillante) --- */
+        blockquote {
+            border-left: 5px solid var(--color-bliss-amarillo);
+            background-color: #fff;
+            padding: 20px 30px;
+            margin: 30px 0;
+            font-size: 1.2rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--color-bliss-petroleo);
+            box-shadow: 0 4px 15px rgba(0, 79, 115, 0.05);
+        }
+
+        /* --- Tablas (Azul Pastel) --- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(0, 79, 115, 0.05);
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--color-bliss-azul-pastel);
+            color: var(--color-bliss-fondo-dark);
+        }
+        tbody tr:nth-child(even) {
+            background-color: #fff;
+        }
+        tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* --- Listas con Íconos Bliss (Coral) --- */
+        ul.bliss-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul.bliss-list li {
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        ul.bliss-list .icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            margin-right: 15px;
+        }
+
+        /* --- Bloque de CTA (Llamado a la Acción) --- */
+        .cta-block {
+            background-color: var(--color-bliss-azul-pastel);
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-bliss-coral);
+            color: var(--color-bliss-fondo-dark);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 153, 128, 0.4);
+        }
+        
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: var(--color-bliss-petroleo);
+        }
+        footer p {
+            font-size: 0.9rem;
+        }
+        footer a {
+            color: var(--color-bliss-petroleo);
+            font-weight: 700;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQcAAAA0CAYAAAAi0LndAAADqElEQVR4nO3dy0sUURzH8c+8S8sUBW1oEYoEJRRBBC2iQpdeVHpB0aV/QTqJ61LqkqBLhS5dKugSVEErC1lE0CKrJEUoS2/iK7i7s3O7M+POfJ/58HGGmZ257/2PzDszD/O6SikAAAAAAAAAAAAAAAD+JaWFtCZQv2+j1kYplUpl+8+9wQ+pABlVv8fM3+mZkFqLdDYbLdfrSjbHeTwf2/39/YpYLK40NzfHqLVanwE4brfbXGq1Wu1eLFbVbrf/CWBvb4/T3t7O6u3tlaenp+u6qqqqeHp6WlVVVfv9/gLg6OgoBwCHwxGZzWbV0dFxBWBpaYkB4Pj4OF9SUnJEvV4vAEajEQBAQ0NDVlVVxefz+ZyenrIsy/b39zO6urqCgwcPcjweJ57nBwCHw4HT29tLlUrFYDBw3d3d+bLZbHo8Hq/X630+n/F4PDMzM/x+v0KhkEql0uv1Op1OL5fLhUJht9u9XC7VarV2ux2LxUJ/f7+rq6t0Oh3f39+r1eooiiJN0+FwmEqlUq1Wf/B+48iTJ0+enJzM6e/vl4CAAOPxON3u7m6/37/S09Pb7XZ3u92tVut0Oh2Hw5HJZGq12t7eXjweDwCWZZuamgIA+Ly4uEhRFM/z5XK5SqWSSqXweDyBQCBfLpfP5xOJRDAaDRzHVavVzc3NTU1NgXNzc77neQBgGAZTU1NdXV0FAOTzeTwe7+zsZFlWqVSyLCsSidBut5PJJF3XnU6nTCaTbdu+vr5mWbZcLsfj8WRZdnFxkXmed+PGjVxXVVVVHR0daLVa5XJ5aWlpUVFRRkdHCYZhoigqLy/XarVyOBymabJarWq1Gk3TJEkyDMPz8/Nvb2/zPM/zPLvdfsMw/Ibl+/2Gz+dLkvR4PJZlORqNxmKxJEnSNE1RFJIkSSqVajQaVVVVy7IsCALDMLZu3cqyrFarFY1G/X5/y7IUi8VqtRqLxSIWi3med3d3l67rTqdTq9XabDbj8Xgmk8lmsyVJotFoGIYRiUQURcFms9lsNgBAEARZlj3P85qmEQqFgiBIkqRYLDabzfV6vVQqFYlE8jxvGAZjMpmqqubzeZlMRqVS2Wy2NE1BEATDMAzDtm3LsiVJIk3TFEXFYrFEIhGCIKRSKZZlm5ubJ06c+Hj55FNPPSXbtoMgnD9//uA/Pz8/9fT01Gq1NE1TU1Nz7NixlpaW3njjjaqqqqqqagDA8PDw7OysruvO53Pe5/PZti2KoiiKoiiKpmnFYjGbzS5fvpwkSdVq9Wv/3L/0AwAAAAAAAAAAAAAAAAD43/wHqG4E9eheS0IAAAAASUVORK5CYII=" alt="Bliss Iconologo">
+        </header>
+
+        <main>
+            <h1>📊 AI Quotient (AIQ) – Tu Índice de Madurez en Inteligencia Artificial</h1>
+            <p style="font-size: 1.3rem; font-weight: 700; color: var(--color-bliss-petroleo);">La brújula estratégica para liderar la transformación digital con autonomía y propósito en LATAM.</p>
+            
+            <hr>
+
+            <h2>1. Medir para Transformar</h2>
+            <p>En un entorno donde la inteligencia artificial redefine la competitividad, medir la madurez digital es esencial para tomar decisiones estratégicas. El **AI Quotient (AIQ)** de **Bliss** traduce la complejidad tecnológica en un indicador claro que muestra **qué tan preparada está tu organización para integrar IA, dónde concentrar esfuerzos y cómo maximizar el retorno de inversión**.</p>
+            
+            <blockquote>📈 El AIQ no solo mide tecnología; mide visión, cultura y ejecución.</blockquote>
+            
+            <p>Antes de explorar los beneficios, es útil comprender por qué medir la madurez en IA se ha convertido en una necesidad estratégica para toda empresa moderna.</p>
+
+            <hr>
+
+            <h2>2. ¿Por qué importa tu AI Quotient?</h2>
+            <p>Las empresas con alta madurez en IA logran:</p>
+            <ul class="bliss-list">
+                <li>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 6L9 17L4 12" stroke="#FF9980" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Reducciones de hasta <strong style="color: var(--color-bliss-coral); margin: 0 5px;">30% en costos operativos</strong> mediante automatización.
+                </li>
+                <li>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 6L9 17L4 12" stroke="#FF9980" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Incrementos del <strong style="color: var(--color-bliss-coral); margin: 0 5px;">20% o más en eficiencia</strong> al tomar decisiones basadas en datos.
+                </li>
+                <li>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 6L9 17L4 12" stroke="#FF9980" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Mayores niveles de <strong style="color: var(--color-bliss-coral); margin: 0 5px;">innovación interna</strong> y atracción de talento digital.
+                </li>
+            </ul>
+
+            <p>El costo de no incorporar IA en los procesos es alto: significa perder velocidad, precisión y capacidad de crecimiento. Las empresas que no actúan a tiempo quedan rezagadas mientras otras aprovechan la IA para **hacer más, mejor y más rápido**.</p>
+            <p>La inteligencia artificial convierte lo inspiracional en metas reales alcanzables, transformando la innovación en resultados tangibles y escalables.</p>
+            <p>Sin embargo, muchas organizaciones **no saben en qué punto están ni cómo avanzar**. El AIQ responde exactamente a esa pregunta.</p>
+            
+            <blockquote>“Lo que no se mide, no se mejora. El AIQ convierte la adopción de IA en un camino medible y estratégico.”</blockquote>
+
+            <hr>
+            
+            <h2>3. Los desafíos de implementar IA sin preparación</h2>
+            <p>Muchas organizaciones intentan integrar inteligencia artificial sin contar con las bases necesarias —infraestructura, cultura, datos o tecnología— y se enfrentan a resultados inconsistentes. En el mundo de la IA, **“garbage in, garbage out”**: si los datos o procesos no están listos, los modelos tampoco pueden generar valor.</p>
+            
+            <h3>Bloqueos más comunes:</h3>
+            <ul>
+                <li>Falta de calidad y disponibilidad de datos confiables.</li>
+                <li>Ausencia de una cultura de colaboración y adopción tecnológica.</li>
+                <li>Procesos fragmentados que limitan la automatización.</li>
+                <li>Tecnología desalineada o sin escalabilidad.</li>
+                <li>Trabajo o procesos en silos que impiden la colaboración transversal.</li>
+                <li>Datos no centralizados que dificultan la toma de decisiones.</li>
+                <li>Protocolos de seguridad débiles o riesgosos en la gestión de información.</li>
+            </ul>
+            <p>El AIQ ayuda a identificar y resolver estos bloqueos antes de invertir, asegurando que cada paso hacia la IA se construya sobre una base sólida y sostenible.</p>
+
+            <hr>
+
+            <h2>4. Cómo funciona el AIQ</h2>
+            <p>A través de un **diagnóstico estructurado** que combina entrevistas, análisis de datos y sesiones ejecutivas, Bliss evalúa cinco dimensiones clave que determinan la madurez AI de tu empresa:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dimensión</th>
+                        <th>Qué mide</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Estrategia y Liderazgo</strong></td>
+                        <td>Grado de visión, gobernanza y alineación de IA con los objetivos del negocio.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Datos e Infraestructura</strong></td>
+                        <td>Capacidad para acceder, procesar y proteger los datos necesarios para IA.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Cultura y Capacidades</strong></td>
+                        <td>Mentalidad, habilidades y adopción del cambio dentro de los equipos.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4. Procesos y Operaciones</strong></td>
+                        <td>Nivel de digitalización, automatización e integración de procesos clave.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>5. Tecnología y Seguridad</strong></td>
+                        <td>Solidez tecnológica, interoperabilidad y cumplimiento ético.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Tu nivel de madurez (0–100)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nivel</th>
+                        <th>Interpretación</th>
+                        <th>Enfoque recomendado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0–19</td>
+                        <td>Inicial</td>
+                        <td>Identificar fundamentos y definir visión AI.</td>
+                    </tr>
+                    <tr>
+                        <td>20–39</td>
+                        <td>Exploratoria</td>
+                        <td>Identificar quick wins y construir bases operativas.</td>
+                    </tr>
+                    <tr>
+                        <td>40–59</td>
+                        <td>Estructurada</td>
+                        <td>Priorizar proyectos con impacto medible.</td>
+                    </tr>
+                    <tr>
+                        <td>60–79</td>
+                        <td>Integrada</td>
+                        <td>Escalar casos de uso y fortalecer cultura AI.</td>
+                    </tr>
+                    <tr>
+                        <td>80–100</td>
+                        <td>AI-driven</td>
+                        <td>Optimizar retorno y expandir innovación.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr>
+
+            <h2>5. Entregables del Diagnóstico AIQ</h2>
+            <ul class="bliss-list">
+                <li>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 6L9 17L4 12" stroke="#FF9980" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <strong>Reporte ejecutivo AIQ:</strong> puntuación global, análisis por dimensión y recomendaciones accionables.
+                </li>
+                <li>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 6L9 17L4 12" stroke="#FF9980" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <strong>Radar de madurez visual:</strong> mapa comparativo con benchmarks sectoriales.
+                </li>
+                <li>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 6L9 17L4 12" stroke="#FF9980" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <strong>Hoja de ruta personalizada:</strong> prioridades estratégicas para los próximos 6–12 meses.
+                </li>
+                <li>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 6L9 17L4 12" stroke="#FF9980" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <strong>Sesión ejecutiva Bliss:</strong> interpretación de resultados y propuesta de siguientes pasos.
+                </li>
+            </ul>
+            <p>
+                📍 <em>Duración promedio del diagnóstico:</em> 12–16 semanas.<br>
+                📍 <em>Formato:</em> sesiones híbridas (presenciales + remotas).<br>
+                📍 <em>Audiencia:</em> CEO, CFO, CTO, líderes de innovación o transformación digital.
+            </p>
+
+            <hr>
+
+            <h2>6. Por qué Bliss</h2>
+            <p>Bliss es un laboratorio de producto y consultora especializada en **datos, hiperpersonalización, inteligencia artificial, automatización e innovación ética**, con la misión de convertir la IA en una ventaja sostenible para las organizaciones de Latinoamérica.</p>
+            <p>No solo entregamos tecnología; construimos autonomía.</p>
+
+            <ul class="bliss-list">
+                <li>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 6L9 17L4 12" stroke="#FF9980" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <strong>Impacto Medible:</strong> Metodología propietaria adaptada al contexto regional.
+                </li>
+                <li>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 6L9 17L4 12" stroke="#FF9980" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <strong>Ética y Soberanía Tecnológica:</strong> Compromiso total con la privacidad y la propiedad intelectual de nuestros clientes.
+                </li>
+                <li>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 6L9 17L4 12" stroke="#FF9980" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <strong>Colaboración y Propósito Compartido:</strong> Equipos técnicos y estratégicos con experiencia que trabajan *contigo* para avanzar la frontera de la IA ética en LATAM.
+                </li>
+            </ul>
+
+            <div class="cta-block">
+                <h2>¿Qué sigue?</h2>
+                <p>Descubre tu potencial de IA y activa tu hoja de ruta.</p>
+                <ol style="list-style: none; padding-left: 0; font-family: 'Poppins'; font-weight: 600;">
+                    <li style="margin-bottom: 10px;">1. Agenda tu diagnóstico sin costo.</li>
+                    <li style="margin-bottom: 10px;">2. Recibe tu AIQ personalizado.</li>
+                    <li style="margin-bottom: 20px;">3. Convierte tus datos en ventaja competitiva.</li>
+                </ol>
+                <a href="mailto:contacto@blissdata.com.mx" class="cta-button">Comenzar mi Diagnóstico</a>
+            </div>
+            
+            <div style="margin-top: 50px; text-align: center;">
+                <h2>El AIQ no es solo una métrica, es una estrategia.</h2>
+                <p>Es la brújula que guía a tu empresa hacia un futuro verdaderamente inteligente. Comprender tus fortalezas y brechas digitales es la herramienta más poderosa para **eficientar recursos, maximizar impacto y aumentar las probabilidades de que tus proyectos superen sus metas**.</p>
+                <blockquote>Atrévete a mirar tu reflejo digital y construir el futuro con propósito.</blockquote>
+                <p><strong>“El AIQ revela el potencial oculto de tu organización para convertirse en una empresa AI-driven.”</strong></p>
+            </div>
+        </main>
+
+        <footer>
+            <hr>
+            <p>
+                📩 <a href="mailto:contacto@blissdata.com.mx">contacto@blissdata.com.mx</a> | 
+                📞 +52 55 5417 8156 | 
+                🌐 <a href="https://blissdata.com.mx/" target="_blank">blissdata.com.mx</a>
+            </p>
+            <p>© 2025 Bliss | Innovación responsable con propósito.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
